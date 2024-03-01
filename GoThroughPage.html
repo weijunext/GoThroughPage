@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Page</title>
+    <script>
+        // 当页面加载完成时执行
+        window.onload = function() {
+            // 获取当前URL的查询字符串部分
+            var queryString = window.location.search;
+            // 使用URLSearchParams解析查询字符串
+            var urlParams = new URLSearchParams(queryString);
+            // 获取名为'redirect'的查询参数作为重定向地址
+            var redirectUrl = urlParams.get('redirect');
+            // 如果重定向地址存在
+            if(redirectUrl) {
+                // 使用window.location.href属性进行重定向
+                window.location.href = redirectUrl;
+            } else {
+                // 如果没有提供重定向地址，可以在这里添加一个默认的处理逻辑
+                // 例如，重定向到一个默认页面或显示一个错误消息
+                console.log('No redirect URL provided.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
